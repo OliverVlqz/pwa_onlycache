@@ -4,7 +4,7 @@ const ASSETS = [
     '/',
     'index.html',
     'app.js',
-    'styles.css',
+    'style.css',
 ]
 // Espera a que se instale el service worker y luego cachea los assets
 self.addEventListener('install', event => {
