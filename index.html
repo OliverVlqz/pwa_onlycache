@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlyCache PWA Calculadora</title>
+</head>
+<body>
+    <!-- Calculadora simple PWA que utiliza OnlyCache para almacenamiento en caché  -->
+    <h1>Calculadora PWA - OnlyCache</h1>
+    <input type="text" id="input" disabled />
+    <div id="buttons">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>/</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>*</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>-</button>
+        <button>0</button>
+        <button>.</button>
+        <button>=</button>
+        <button>+</button>
+</body>
+<script>
+    // funcionalidad de la calculadora
+    const input = document.getElementById('input');
+    const buttons = document.getElementById('buttons');
+    buttons.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON') {
+            const value = e.target.textContent;
+            if (value === '=') {
+                try {
+                    input.value = eval(input.value);
+                } catch {
+                    input.value = 'Error';
+                }
+            } else {
+                input.value += value;
+            }
+        }
+    });
+</script>
+<script src="./app.js"></script>
+<script src="./sw.js"></script>
+
+</html>
